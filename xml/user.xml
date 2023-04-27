@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+<firstname>dor</firstname>
+<lastname>torgeman</lastname>
+<email>test04@Test.com</email>
+<email2>test05@Test.com</email2>
+<emailFriend>emailFriend@Test.com</emailFriend>
+<password>191295Dor</password>
+<password2>191295Dor</password2>
+<city>sderot</city>
+<country>israel</country>
+<phonedemo>0515111111</phonedemo>
+</config>
