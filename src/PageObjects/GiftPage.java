@@ -23,8 +23,8 @@ public class GiftPage extends BasePage {
     public    By Gift_TakeSomeMediaFile=By.cssSelector("input[accept='image/png,image/jpeg,video/quicktime,video/mp4,.mov,.qt']");
     protected   By Gift_SubmitToNextStage1=By.cssSelector("button[type='submit'][gtm='המשך']");
     protected   By Gift_NameAGiverGift=By.cssSelector("input[placeholder='שם שולח המתנה'][required][type='text']");
-    protected   By Gift_WayEmail=By.cssSelector("div.toggle-icon > div.circle-area > svg.method-icon[gtm='method-email']");
-    protected   By Gift_WaySMS=By.cssSelector("div.toggle-icon > div.circle-area > svg.method-icon[gtm='method-sms']");
+    protected   By Gift_WayEmail=By.cssSelector("svg[gtm='method-email']");
+    protected   By Gift_WaySMS=By.cssSelector("svg[gtm='method-sms']");
     protected   By Gift_InputEmail=By.id("email");
     protected   By Gift_InputSms=By.id("sms");
     protected   By Gift_InputYouPhone=By.cssSelector("input[placeholder='מספר נייד'][data-parsley-mobile='mobile']");
@@ -135,7 +135,15 @@ public class GiftPage extends BasePage {
         ClearText(elementSendKey);
         SendKEY(elementSendKey,Picture);
             return giftPage=new GiftPage();}
-
-
+    public  GiftPage GetNameReceiver(){
+        WebElement GetNameReceiver = driver.findElement(Gift_NameWhoGet);
+        GetNameReceiver.getAccessibleName ();
+        System.out.println("name Receiver:"+GetNameReceiver);
+        return giftPage=new GiftPage();}
+    public  GiftPage GetBlessing(){
+        WebElement GetBlessing = driver.findElement(Gift_BlessingText);
+        GetBlessing.getAccessibleName();
+        System.out.println("Blessing:"+GetBlessing);
+        return giftPage=new GiftPage();}
 }
 
