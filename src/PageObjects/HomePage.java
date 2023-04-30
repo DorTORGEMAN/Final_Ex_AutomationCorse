@@ -23,6 +23,7 @@ public class HomePage extends BasePage {
     return homePage=new HomePage(driver);
     }
     public  HomePage pickPrice(String price) throws InterruptedException {
+
         ClickLikeHuman(HomeSelectPrice);
         switch (price){////select not work some reason So I think maybe switch work
             case "ils99":{
@@ -41,37 +42,40 @@ public class HomePage extends BasePage {
                 Click(By.cssSelector("li[value='4'][uaindex='4']"));}break;
             case "ils500-750":{
                 Thread.sleep(25);
-                ClickLikeHuman(By.cssSelector("li[value='5'][uaindex='5']"));}break;
+                Click(By.cssSelector("li[value='5'][uaindex='5']"));}break;
             case "ils750Up":{
                 Thread.sleep(12);
-             Click(By.cssSelector("li[value='6'][uaindex='6']"));
-
+                Click(By.cssSelector("li[value='6'][uaindex='6']"));
             }break;
-        }return homePage=new HomePage(driver);
-    }
+        }return homePage=new HomePage(driver);}
     public  HomePage pickLocation(String location) throws InterruptedException {
         ClickLikeHuman(HomeSelectLocation);
-        switch (location){
-            case "Center":{
+        switch (location) {
+            case "Center": {
                 Thread.sleep(12);
                 Click(By.cssSelector("li[value='11'][uaindex='1']"));
-            } break;
-            case "Tel aviv":{
+            }
+            break;
+            case "Tel aviv": {
                 Thread.sleep(12);
                 Click(By.cssSelector("li[value='13'][uaindex='2']"));
-            } break;
-            case "North":{
+            }
+            break;
+            case "North": {
                 Thread.sleep(12);
                 Click(By.cssSelector("li[value='9'][uaindex='3']"));
-            } break;
-            case "South":{
+            }
+            break;
+            case "South": {
                 Thread.sleep(12);
                 Click(By.cssSelector("li[value='12'][uaindex='4']"));
-            } break;
-            case "Jerusalem":{
+            }
+            break;
+            case "Jerusalem": {
                 Thread.sleep(12);
                 Click(By.cssSelector("li[value='14'][uaindex='5']"));
-            } break;
+            }
+            break;
         }return homePage=new HomePage(driver);
     }
     public  HomePage PickCategory(String PickCategory) throws InterruptedException {
@@ -86,5 +90,15 @@ public class HomePage extends BasePage {
                 Click(By.cssSelector("li[value='315'][uaindex='11']"));}
         }return homePage=new HomePage(driver);
     }
-
+    public  HomePage PickCategory1(String PickCategory) throws InterruptedException { ///some reason not work
+        ClickLikeHuman(HomeSelectCategory);
+        switch (PickCategory) {
+            case "giftCard restaurant chef": {
+                SelectInListText(HomeSelectCategory,"גיפט קארד למסעדות שף");
+            }break;
+            case "hotels":{
+                Thread.sleep(12);
+                Click(By.cssSelector("li[value='315'][uaindex='11']"));}
+        }return homePage=new HomePage(driver);
+    }
 }

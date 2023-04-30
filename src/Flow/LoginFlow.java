@@ -19,6 +19,5 @@ public class LoginFlow {
             loginPage.SetUp_Email()
                      .SetUp_Password()
                      .ClickOnConnected();
-        Thread.sleep(Duration.ofSeconds(5));
        }
 }

@@ -1,5 +1,6 @@
 package Test;
 
+import Flow.FlowGifts;
 import Flow.FlowHome;
 import Flow.LoginFlow;
 import Flow.SignUpFlow;
@@ -15,11 +16,12 @@ import static PageObjects.BasePage.*;
 
 public class TestBase {
    protected static ExtentReports extent;
-   protected static ExtentTest MyTests;
+   public static ExtentTest MyTests;
    protected static String reportFilePath="C:/Users/power play/IdeaProjects/Final_Ex_AutomationCorse/extent-report.html";
 
 
     public TestBase() {
+
     }
     static BasePage basePage;
     static TestGift testGift;
@@ -30,6 +32,7 @@ public class TestBase {
     static LoginFlow loginFlow;
     static SignUpFlow signUpFlow;
     static FlowHome flowHome;
+    static FlowGifts flowGifts;
     @BeforeClass
     public static void SetUp() throws Exception {
         extent =new ExtentReports(reportFilePath);

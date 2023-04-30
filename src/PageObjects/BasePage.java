@@ -1,8 +1,5 @@
 package PageObjects;
 
-import Flow.FlowHome;
-import Flow.LoginFlow;
-import Flow.SignUpFlow;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -108,11 +105,29 @@ public class BasePage {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
     }
+    public static void DoubleClickLikeHuman(By by) {
+        WebElement element = driver.findElement(by);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).doubleClick().build().perform();
+    }
 
-    public static void SelectInList(By by, int text) {
-        WebElement SelectedComboList = driver.findElement(by);
+    public static void SelectInListVaule(By by, String text) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement SelectedComboList = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        Select Selectcombo = new Select(SelectedComboList);
+        Selectcombo.selectByValue(text);
+    }
+    public static void SelectInListIndex(By by, int text) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement SelectedComboList = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         Select Selectcombo = new Select(SelectedComboList);
         Selectcombo.selectByIndex(text);
+    }
+    public static void SelectInListText(By by, String text) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement SelectedComboList = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        Select Selectcombo = new Select(SelectedComboList);
+        Selectcombo.selectByVisibleText(text);
     }
 
     public static void WaitForFindElementAndClick(By by) {
@@ -127,13 +142,14 @@ public class BasePage {
         element.sendKeys(Text);
     }
 
-    public static void WaitForFindElementAndPrintSize(By by, String sizeWhat) {
+    public static void
+    WaitForFindElementAndPrintSize(By by, String sizeWhat) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.navigate().refresh();
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         int height = element.getSize().getHeight();
         int width = element.getSize().getWidth();
-        System.out.println("Height of "+sizeWhat+": "+height+"\n Width of "+sizeWhat+": "+width);
+        System.out.println("Height of "+sizeWhat+":"+height+"\n Width of "+sizeWhat+":"+width);
     }
     public static void WaitFindElementPrintColorAssert(By by,String rgb) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -141,6 +157,11 @@ public class BasePage {
         String color = element.getCssValue("color");
         Assert.assertEquals(rgb, color);
         String Text = element.getText();
-        System.out.println(Text+" Color is:"+color);
-    }
+        System.out.println(Text+" Color is:"+color);}
+    public  static void ClickElementClickable(By by){
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement elementToClick = wait.until(ExpectedConditions.elementToBeClickable(by));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", elementToClick);
+        }
+
     }

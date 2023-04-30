@@ -12,6 +12,7 @@ import static PageObjects.BasePage.driver;
 public class TestExtra extends TestBase{
     @Test
     public void test00_dotEXTRA(){////for catch dot you must refresh before it open website
+
         basePage.WaitForFindElementAndPrintSize(By.cssSelector("div[class='bounce1']"),"3 dots");
     }
     @Test
